@@ -222,9 +222,11 @@ class _DumpScreenState extends State<DumpScreen>
                                     width: 1),
                               ),
                               child: const Center(
-                                child: Text('✦',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 20)),
+                                child: Image(
+                                  image: AssetImage('assets/logo.png'),
+                                  width: 150,
+                                  height: 150,
+                                ),
                               ),
                             ),
                             const SizedBox(width: 12),
