@@ -1,4 +1,4 @@
-# 🌿 Daily Reframe
+# 🌿 Mood Reframe
 
 A minimal, calming Flutter mental wellness app that helps users reframe negative thoughts using Google Gemini AI.
 

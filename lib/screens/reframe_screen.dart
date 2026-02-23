@@ -44,7 +44,7 @@ class ReframeScreen extends StatelessWidget {
                     ),
                     Expanded(
                       child: Text(
-                        'Daily Reframe',
+                        'Mood Reframe',
                         style: GoogleFonts.playfairDisplay(
                           fontSize: 20,
                           fontWeight: FontWeight.w700,
@@ -52,7 +52,15 @@ class ReframeScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const Text('✦', style: TextStyle(color: Color(0xFF7C5CBF), fontSize: 20)),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: Image.asset(
+                        'assets/logo.png',
+                        width: 24,
+                        height: 24,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -119,7 +127,9 @@ class ReframeScreen extends StatelessWidget {
                       // Section label
                       Animate(
                         effects: const [
-                          FadeEffect(delay: Duration(milliseconds: 150), duration: Duration(milliseconds: 500)),
+                          FadeEffect(
+                              delay: Duration(milliseconds: 150),
+                              duration: Duration(milliseconds: 500)),
                         ],
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -176,7 +186,9 @@ class ReframeScreen extends StatelessWidget {
                       // Try Another Thought button
                       Animate(
                         effects: const [
-                          FadeEffect(delay: Duration(milliseconds: 700), duration: Duration(milliseconds: 500)),
+                          FadeEffect(
+                              delay: Duration(milliseconds: 700),
+                              duration: Duration(milliseconds: 500)),
                           SlideEffect(
                             delay: Duration(milliseconds: 700),
                             begin: Offset(0, 0.3),
@@ -228,7 +240,9 @@ class ReframeScreen extends StatelessWidget {
                       // Gentle reminder
                       Animate(
                         effects: const [
-                          FadeEffect(delay: Duration(milliseconds: 850), duration: Duration(milliseconds: 500)),
+                          FadeEffect(
+                              delay: Duration(milliseconds: 850),
+                              duration: Duration(milliseconds: 500)),
                         ],
                         child: Center(
                           child: Text(

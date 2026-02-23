@@ -1,4 +1,4 @@
-name: daily_reframe
+name: mood_reframe
 description: A minimal mental wellness app to reframe negative thoughts using AI.
 publish_to: 'none'
 version: 1.0.0+1
@@ -19,8 +19,25 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
+  flutter_launcher_icons: ^0.13.1
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  web:
+    generate: true
+    image_path: "assets/logo.png"
+    background_color: "#7C5CBF"
+    theme_color: "#7C5CBF"
+  windows:
+    generate: true
+    image_path: "assets/logo.png"
+    icon_size: 256
+  image_path: "assets/logo.png"
+  min_sdk_android: 21 # android min sdk min:16, default:adaptive
 
 flutter:
   uses-material-design: true
   assets:
     - .env
+    - assets/

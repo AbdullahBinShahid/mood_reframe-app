@@ -1,4 +1,4 @@
-package com.example.daily_reframe
+package com.example.mood_reframe
 
 import io.flutter.embedding.android.FlutterActivity
 

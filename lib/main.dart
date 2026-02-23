@@ -18,16 +18,16 @@ Future<void> main() async {
     ),
   );
 
-  runApp(const DailyReframeApp());
+  runApp(const MoodReframeApp());
 }
 
-class DailyReframeApp extends StatelessWidget {
-  const DailyReframeApp({super.key});
+class MoodReframeApp extends StatelessWidget {
+  const MoodReframeApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Daily Reframe',
+      title: 'Mood Reframe',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(

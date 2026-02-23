@@ -1,4 +1,4 @@
-import 'package:daily_reframe/services/ai_services.dart';
+import 'package:mood_reframe/services/ai_services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -56,7 +56,8 @@ class _DumpScreenState extends State<DumpScreen> {
                 position: Tween<Offset>(
                   begin: const Offset(0, 0.05),
                   end: Offset.zero,
-                ).animate(CurvedAnimation(parent: animation, curve: Curves.easeOutCubic)),
+                ).animate(CurvedAnimation(
+                    parent: animation, curve: Curves.easeOutCubic)),
                 child: child,
               ),
             );
@@ -83,7 +84,8 @@ class _DumpScreenState extends State<DumpScreen> {
             const SizedBox(width: 10),
             Text(
               'Something went wrong',
-              style: GoogleFonts.nunito(fontWeight: FontWeight.w700, fontSize: 18),
+              style:
+                  GoogleFonts.nunito(fontWeight: FontWeight.w700, fontSize: 18),
             ),
           ],
         ),
@@ -142,22 +144,18 @@ class _DumpScreenState extends State<DumpScreen> {
                     children: [
                       Row(
                         children: [
-                          Container(
-                            width: 42,
-                            height: 42,
-                            decoration: BoxDecoration(
-                              gradient: const LinearGradient(
-                                colors: [Color(0xFF7C5CBF), Color(0xFFB39DDB)],
-                              ),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            child: const Center(
-                              child: Text('✦', style: TextStyle(color: Colors.white, fontSize: 20)),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(12),
+                            child: Image.asset(
+                              'assets/logo.png',
+                              width: 42,
+                              height: 42,
+                              fit: BoxFit.cover,
                             ),
                           ),
                           const SizedBox(width: 12),
                           Text(
-                            'Daily Reframe',
+                            'Mood Reframe',
                             style: GoogleFonts.playfairDisplay(
                               fontSize: 26,
                               fontWeight: FontWeight.w700,
@@ -195,7 +193,9 @@ class _DumpScreenState extends State<DumpScreen> {
                 // Text input
                 Animate(
                   effects: const [
-                    FadeEffect(delay: Duration(milliseconds: 200), duration: Duration(milliseconds: 600)),
+                    FadeEffect(
+                        delay: Duration(milliseconds: 200),
+                        duration: Duration(milliseconds: 600)),
                     SlideEffect(
                       delay: Duration(milliseconds: 200),
                       begin: Offset(0, 0.2),
@@ -228,7 +228,8 @@ class _DumpScreenState extends State<DumpScreen> {
                         fontWeight: FontWeight.w500,
                       ),
                       decoration: InputDecoration(
-                        hintText: 'e.g. "I always mess things up. Nothing ever works out for me…"',
+                        hintText:
+                            'e.g. "I always mess things up. Nothing ever works out for me…"',
                         hintStyle: GoogleFonts.nunito(
                           color: Colors.grey.shade400,
                           fontSize: 15,
@@ -246,7 +247,9 @@ class _DumpScreenState extends State<DumpScreen> {
                 // Mood chips
                 Animate(
                   effects: const [
-                    FadeEffect(delay: Duration(milliseconds: 350), duration: Duration(milliseconds: 600)),
+                    FadeEffect(
+                        delay: Duration(milliseconds: 350),
+                        duration: Duration(milliseconds: 600)),
                   ],
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -269,14 +272,18 @@ class _DumpScreenState extends State<DumpScreen> {
                           return GestureDetector(
                             onTap: () {
                               setState(() {
-                                _selectedMood = isSelected ? null : mood['label'];
+                                _selectedMood =
+                                    isSelected ? null : mood['label'];
                               });
                             },
                             child: AnimatedContainer(
                               duration: const Duration(milliseconds: 200),
-                              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 16, vertical: 10),
                               decoration: BoxDecoration(
-                                color: isSelected ? const Color(0xFF7C5CBF) : Colors.white,
+                                color: isSelected
+                                    ? const Color(0xFF7C5CBF)
+                                    : Colors.white,
                                 borderRadius: BorderRadius.circular(50),
                                 border: Border.all(
                                   color: isSelected
@@ -287,7 +294,8 @@ class _DumpScreenState extends State<DumpScreen> {
                                 boxShadow: isSelected
                                     ? [
                                         BoxShadow(
-                                          color: const Color(0xFF7C5CBF).withOpacity(0.25),
+                                          color: const Color(0xFF7C5CBF)
+                                              .withOpacity(0.25),
                                           blurRadius: 12,
                                           offset: const Offset(0, 4),
                                         ),
@@ -297,14 +305,17 @@ class _DumpScreenState extends State<DumpScreen> {
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  Text(mood['emoji']!, style: const TextStyle(fontSize: 16)),
+                                  Text(mood['emoji']!,
+                                      style: const TextStyle(fontSize: 16)),
                                   const SizedBox(width: 6),
                                   Text(
                                     mood['label']!,
                                     style: GoogleFonts.nunito(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w600,
-                                      color: isSelected ? Colors.white : const Color(0xFF3D3450),
+                                      color: isSelected
+                                          ? Colors.white
+                                          : const Color(0xFF3D3450),
                                     ),
                                   ),
                                 ],
@@ -322,7 +333,9 @@ class _DumpScreenState extends State<DumpScreen> {
                 // Reframe button
                 Animate(
                   effects: const [
-                    FadeEffect(delay: Duration(milliseconds: 450), duration: Duration(milliseconds: 600)),
+                    FadeEffect(
+                        delay: Duration(milliseconds: 450),
+                        duration: Duration(milliseconds: 600)),
                     SlideEffect(
                       delay: Duration(milliseconds: 450),
                       begin: Offset(0, 0.3),
@@ -335,9 +348,10 @@ class _DumpScreenState extends State<DumpScreen> {
                     width: double.infinity,
                     height: 60,
                     child: ElevatedButton(
-                      onPressed: (_isLoading || _thoughtController.text.trim().isEmpty)
-                          ? null
-                          : _onReframePressed,
+                      onPressed:
+                          (_isLoading || _thoughtController.text.trim().isEmpty)
+                              ? null
+                              : _onReframePressed,
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF7C5CBF),
                         disabledBackgroundColor: Colors.grey.shade200,
@@ -349,7 +363,8 @@ class _DumpScreenState extends State<DumpScreen> {
                         shadowColor: const Color(0xFF7C5CBF).withOpacity(0.4),
                       ).copyWith(
                         elevation: MaterialStateProperty.resolveWith<double>(
-                          (states) => states.contains(MaterialState.disabled) ? 0 : 6,
+                          (states) =>
+                              states.contains(MaterialState.disabled) ? 0 : 6,
                         ),
                         shadowColor: MaterialStateProperty.all(
                           const Color(0xFF7C5CBF).withOpacity(0.35),
@@ -386,9 +401,10 @@ class _DumpScreenState extends State<DumpScreen> {
                                   style: GoogleFonts.nunito(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w700,
-                                    color: _thoughtController.text.trim().isEmpty
-                                        ? Colors.grey.shade400
-                                        : Colors.white,
+                                    color:
+                                        _thoughtController.text.trim().isEmpty
+                                            ? Colors.grey.shade400
+                                            : Colors.white,
                                     letterSpacing: 0.3,
                                   ),
                                 ),
